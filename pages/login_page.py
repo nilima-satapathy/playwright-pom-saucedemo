@@ -26,6 +26,11 @@ class LoginPage(BasePage):
         self.page.locator(self.PASSWORD).fill(password)
         self.page.locator(self.LOGIN_BUTTON).click()
 
+    def expect_loaded(self) -> None:
+        """Assert the login form is visible (e.g. after logout)."""
+        expect(self.page.locator(self.USERNAME)).to_be_visible()
+        expect(self.page.locator(self.LOGIN_BUTTON)).to_be_visible()
+
     def expect_error_visible(self) -> None:
         """Assert the login error banner is shown (used from M4)."""
         expect(self.page.locator(self.ERROR_MESSAGE)).to_be_visible()

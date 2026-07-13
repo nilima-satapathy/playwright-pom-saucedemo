@@ -32,3 +32,12 @@ class InventoryPage(BasePage):
     def open_cart(self) -> None:
         """Open the shopping cart from the header icon."""
         self.page.locator(self.CART_LINK).click()
+
+    def expect_cart_badge_count(self, count: int) -> None:
+        """Assert the cart badge shows the expected number of items."""
+        expect(self.page.locator(self.CART_BADGE)).to_have_text(str(count))
+
+    def logout(self) -> None:
+        """Open the side menu and log out."""
+        self.page.locator("#react-burger-menu-btn").click()
+        self.page.locator("#logout_sidebar_link").click()

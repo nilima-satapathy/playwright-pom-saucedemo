@@ -10,3 +10,8 @@ LOCKED_OUT_USER = "locked_out_user"
 # Products used in cart/checkout journeys (M3).
 BACKPACK = "Sauce Labs Backpack"
 BIKE_LIGHT = "Sauce Labs Bike Light"
+
+# Checkout form data (demo only).
+CHECKOUT_FIRST_NAME = "Nilima"
+CHECKOUT_LAST_NAME = "S"
+CHECKOUT_POSTAL_CODE = "751001"
