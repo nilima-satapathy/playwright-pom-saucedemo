@@ -2,18 +2,20 @@
 
 UI automation suite for [SauceDemo](https://www.saucedemo.com) using **Python + Playwright + Pytest**.
 
-[![Milestones](https://img.shields.io/badge/Milestones-M1–M4%20complete-2ea44f)](./MILESTONES.md)
+[![CI](https://github.com/nilima-satapathy/playwright-pom-saucedemo/actions/workflows/ci.yml/badge.svg)](https://github.com/nilima-satapathy/playwright-pom-saucedemo/actions/workflows/ci.yml)
+[![Milestones](https://img.shields.io/badge/Milestones-M1–M5%20complete-2ea44f)](./MILESTONES.md)
 [![Tests](https://img.shields.io/badge/Tests-9%20passed-success)](./tests)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-Pytest-2EAD33?logo=playwright)](https://playwright.dev/python/)
 
 | | |
 |---|---|
-| **Status** | In progress — **M1–M4 complete** |
-| **Stack** | Playwright, Pytest, pytest-playwright, Page Object Model |
+| **Status** | In progress — **M1–M5 complete** |
+| **Stack** | Playwright, Pytest, pytest-playwright, Page Object Model, GitHub Actions |
 | **Target** | saucedemo.com (login → cart → checkout → logout) |
 | **Tests** | **9** (5 happy-path + 4 negative) |
-| **On failure** | Screenshot + Playwright trace → `test-results/` |
+| **CI** | Headless Chromium on every push/PR · [Actions](https://github.com/nilima-satapathy/playwright-pom-saucedemo/actions) |
+| **On failure** | Screenshot + Playwright trace → `test-results/` (uploaded as CI artifact) |
 | **Progress board** | [ai-career-journey](https://github.com/nilima-satapathy/ai-career-journey) |
 
 ---
@@ -26,6 +28,7 @@ UI automation suite for [SauceDemo](https://www.saucedemo.com) using **Python + 
 | **M2** | Page Object Model (`pages/`) |
 | **M3** | Cart + checkout journeys |
 | **M4** | Negative login + screenshot/trace on fail |
+| **M5** | GitHub Actions headless CI + report/trace artifacts |
 
 ---
 
@@ -61,11 +64,18 @@ playwright install chromium
 ## Run tests
 
 ```powershell
+# Headless (default) — same mode as CI
 pytest
-pytest --headed   # watch the browser
+
+# Watch the browser
+pytest --headed
+
+# With HTML report
+mkdir reports -Force
+pytest --html=reports/report.html --self-contained-html
 ```
 
-### Failure artifacts (M4)
+### Failure artifacts (M4 + M5)
 
 On a failed test, Playwright writes under `test-results/`:
 
@@ -76,12 +86,15 @@ On a failed test, Playwright writes under `test-results/`:
 playwright show-trace test-results\<folder>\trace.zip
 ```
 
+On CI, download **pytest-html-report** and **playwright-test-results** from the Actions run.
+
 ---
 
-## Project layout (M4)
+## Project layout (M5)
 
 ```
 playwright-pom-saucedemo/
+├── .github/workflows/ci.yml
 ├── pages/
 │   ├── base_page.py
 │   ├── login_page.py
@@ -98,4 +111,4 @@ playwright-pom-saucedemo/
     └── test_data.py
 ```
 
-**Next (M5):** GitHub Actions headless CI + upload report/trace artifacts.
+**Next (M6):** README polish + portfolio screenshot/GIF.
