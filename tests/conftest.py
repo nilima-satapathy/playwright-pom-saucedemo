@@ -3,6 +3,7 @@ Shared Pytest setup for Playwright UI tests.
 
 - base_url fixture for all page objects
 - Browser/page fixtures come from pytest-playwright
+- Failure artifacts (screenshot + trace) configured in pytest.ini (M4)
 """
 
 from __future__ import annotations

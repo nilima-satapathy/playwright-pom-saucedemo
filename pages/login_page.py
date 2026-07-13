@@ -32,5 +32,16 @@ class LoginPage(BasePage):
         expect(self.page.locator(self.LOGIN_BUTTON)).to_be_visible()
 
     def expect_error_visible(self) -> None:
-        """Assert the login error banner is shown (used from M4)."""
+        """Assert the login error banner is shown."""
         expect(self.page.locator(self.ERROR_MESSAGE)).to_be_visible()
+
+    def expect_error_contains(self, text: str) -> None:
+        """Assert the error banner is visible and contains expected text."""
+        error = self.page.locator(self.ERROR_MESSAGE)
+        expect(error).to_be_visible()
+        expect(error).to_contain_text(text)
+
+    def expect_still_on_login(self) -> None:
+        """Assert we did not leave the login page (failed auth)."""
+        self.expect_loaded()
+        expect(self.page).not_to_have_url(f"{self.base_url}/inventory.html")
