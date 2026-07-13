@@ -7,7 +7,9 @@
 | M3 | Cart + checkout journeys | Done | 2026-07-13 |
 | M4 | Negative cases + traces on fail | Done | 2026-07-13 |
 | M5 | CI workflow (headless) | Done | 2026-07-13 |
-| M6 | README polish | Pending | — |
+| M6 | README polish | Done | 2026-07-13 |
+
+**Project status:** ✅ **Complete** (M1–M6 · 9 tests · CI)
 
 ## M1 notes
 
@@ -22,7 +24,8 @@
 
 ## M3 notes
 
-- CheckoutPage + 5 journey tests
+- CheckoutPage + cart/checkout journeys
+- 5 journey tests (before negatives)
 
 ## M4 notes
 
@@ -33,6 +36,10 @@
 ## M5 notes
 
 - `.github/workflows/ci.yml` — headless Playwright on push/PR
-- Installs Chromium with OS deps on Ubuntu
-- Uploads HTML report + Playwright `test-results/` artifacts
-- `pytest-html` added to requirements
+- HTML report + Playwright artifacts uploaded
+
+## M6 notes
+
+- Recruiter-ready README (features, architecture, CI, interview points)
+- Portfolio SVGs under `docs/assets/`
+- Project marked complete

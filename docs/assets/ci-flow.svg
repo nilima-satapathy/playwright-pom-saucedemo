@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="280" viewBox="0 0 920 280" role="img" aria-label="CI pipeline flow">
+  <rect width="920" height="280" fill="#0f172a"/>
+  <text x="32" y="40" fill="#e2e8f0" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="700">GitHub Actions — Headless UI CI</text>
+  <text x="32" y="64" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="13">push / PR → install → Chromium → pytest → upload artifacts</text>
+
+  <rect x="40" y="110" width="140" height="90" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+  <text x="110" y="150" text-anchor="middle" fill="#38bdf8" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">1. Checkout</text>
+  <text x="110" y="175" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">main branch</text>
+
+  <rect x="210" y="110" width="150" height="90" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+  <text x="285" y="150" text-anchor="middle" fill="#a78bfa" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">2. Python + deps</text>
+  <text x="285" y="175" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">3.12 · pip cache</text>
+
+  <rect x="390" y="110" width="160" height="90" rx="12" fill="#1e293b" stroke="#34d399" stroke-width="2"/>
+  <text x="470" y="150" text-anchor="middle" fill="#34d399" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">3. Chromium</text>
+  <text x="470" y="175" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">install --with-deps</text>
+
+  <rect x="580" y="110" width="140" height="90" rx="12" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+  <text x="650" y="150" text-anchor="middle" fill="#fbbf24" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">4. pytest</text>
+  <text x="650" y="175" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">9 tests headless</text>
+
+  <rect x="750" y="110" width="140" height="90" rx="12" fill="#1e293b" stroke="#f472b6" stroke-width="2"/>
+  <text x="820" y="150" text-anchor="middle" fill="#f472b6" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700">5. Artifacts</text>
+  <text x="820" y="175" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="11">HTML + traces</text>
+
+  <path d="M180 155 H205" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M360 155 H385" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M550 155 H575" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M720 155 H745" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+
+  <text x="32" y="250" fill="#94a3b8" font-family="Segoe UI, Arial, sans-serif" font-size="12">Artifacts: pytest-html-report · playwright-test-results (screenshots/traces if any test fails)</text>
+
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+</svg>
