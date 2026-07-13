@@ -1,23 +1,24 @@
 """
-Milestone 1 — first login test (no Page Object Model yet).
+Login tests — Milestone 2 uses Page Object Model.
 
-Selectors live in the test on purpose; M2 will move them into pages/.
+Selectors live in pages/; tests only describe user intent.
 """
 
 from __future__ import annotations
 
-from playwright.sync_api import Page, expect
+from playwright.sync_api import Page
+
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
+from utils import test_data
 
 
 def test_successful_login(page: Page, base_url: str) -> None:
     """Valid credentials should land on the Products (inventory) page."""
-    page.goto(base_url)
+    login = LoginPage(page, base_url)
+    inventory = InventoryPage(page, base_url)
 
-    # SauceDemo login form
-    page.locator("#user-name").fill("standard_user")
-    page.locator("#password").fill("secret_sauce")
-    page.locator("#login-button").click()
+    login.open()
+    login.login(test_data.STANDARD_USER, test_data.STANDARD_PASSWORD)
 
-    # After login, inventory header shows "Products"
-    expect(page.locator(".title")).to_have_text("Products")
-    expect(page).to_have_url(f"{base_url.rstrip('/')}/inventory.html")
+    inventory.expect_loaded()

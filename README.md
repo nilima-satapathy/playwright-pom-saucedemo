@@ -2,22 +2,25 @@
 
 UI automation suite for [SauceDemo](https://www.saucedemo.com) using **Python + Playwright + Pytest**.
 
-[![Milestones](https://img.shields.io/badge/Milestones-M1%20complete-2ea44f)](./MILESTONES.md)
+[![Milestones](https://img.shields.io/badge/Milestones-M1–M2%20complete-2ea44f)](./MILESTONES.md)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-Pytest-2EAD33?logo=playwright)](https://playwright.dev/python/)
 
 | | |
 |---|---|
-| **Status** | In progress — **M1 complete** |
-| **Stack** | Playwright, Pytest, pytest-playwright |
+| **Status** | In progress — **M1–M2 complete** |
+| **Stack** | Playwright, Pytest, pytest-playwright, Page Object Model |
 | **Target** | saucedemo.com (login → cart → checkout) |
 | **Progress board** | [ai-career-journey](https://github.com/nilima-satapathy/ai-career-journey) |
 
 ---
 
-## Milestone 1 (done)
+## What’s done
 
-Working login test against SauceDemo. **No Page Object Model yet** (that is M2).
+| Milestone | Shipped |
+|-----------|---------|
+| **M1** | First login test (inline selectors) |
+| **M2** | Page Object Model — selectors live in `pages/` |
 
 ---
 
@@ -43,7 +46,7 @@ pytest --headed
 
 ---
 
-## Project layout (M1)
+## Project layout (M2)
 
 ```
 playwright-pom-saucedemo/
@@ -51,9 +54,16 @@ playwright-pom-saucedemo/
 ├── requirements.txt
 ├── pytest.ini
 ├── MILESTONES.md
-└── tests/
-    ├── conftest.py      # base_url fixture
-    └── test_login.py    # first login test (inline selectors)
+├── pages/
+│   ├── base_page.py
+│   ├── login_page.py
+│   ├── inventory_page.py
+│   └── cart_page.py
+├── tests/
+│   ├── conftest.py
+│   └── test_login.py
+└── utils/
+    └── test_data.py
 ```
 
-Full POM structure lands in **M2**.
+**Next (M3):** cart + checkout end-to-end journeys.
